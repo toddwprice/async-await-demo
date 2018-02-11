@@ -1,7 +1,7 @@
 {
   "region": "us-east-1",
-  "functionName":  "async-js-demo",
-  "handler":        "async-js-demo.handler",
+  "functionName":  "async-await-demo",
+  "handler":        "async-await-demo.handler",
   "description":    "Function to demonstrate running async-await syntax on Node 6 in AWS Lambda using Lambinator",
   "roleArn": "arn:aws:iam::808882394590:role/lambda_s3_exec_role",
   "runtime": "babel-nodejs6.10",
@@ -11,7 +11,7 @@
     "SubnetIds": []
   },
   "memorySize":     128,
-  "timeout":        30,
+  "timeout":        60,
   "dependencies":   [],
   "testEvents": {
     "custom": {

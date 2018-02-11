@@ -1,0 +1,14 @@
+{
+  "args": {
+    "x": 36,
+    "n": 7    
+  },
+  "s3": {
+    "bucket": "async-await",
+    "keys": {
+      "single_arg": "function-params",
+      "array_10": "array-10.json",
+      "array_100": "array-100.json"
+    }
+  }
+}
