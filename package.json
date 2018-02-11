@@ -1,6 +1,6 @@
 {
   "name": "async-javascript-demo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Project to demonstrate callbacks, promises, and async/await in JavaScript.",
   "main": "index.js",
   "scripts": {
