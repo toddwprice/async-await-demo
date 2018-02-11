@@ -1,6 +1,5 @@
 const AWS = require('aws-sdk');
 AWS.config.update({region: 'us-east-1'});
-const params = require('../params.json');
 const settings = require('../settings.json');
 const bluebird = require('bluebird');
 const s3 = bluebird.promisifyAll(new AWS.S3());
@@ -9,9 +8,9 @@ const s3 = bluebird.promisifyAll(new AWS.S3());
 
   try {
     const payload = {
-      Bucket: settings.Bucket,
-      Key: settings.Key,
-      Body: JSON.stringify(params)
+      Bucket: settings.s3.bucket,
+      Key: settings.s3.keys.single_arg,
+      Body: JSON.stringify(settings.args)
     };
 
     const result = await s3.uploadAsync(payload);

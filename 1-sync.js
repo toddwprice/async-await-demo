@@ -3,16 +3,25 @@ const pwr = (x, n) => {
   return Math.pow(x, n);
 }
 
+// NOTE: every example builds on a simple math operation function that takes two arguments (x,n)
+//    and returns x^n
+//    This first example gets the arguments from a local file.
+
 // getArgs -- retrieves the arguments we want to send to the function
 const getArgs = () => {
-  return require('./params.json');
+  const settings = require('./settings.json');
+  return settings.args;
 }
 
-let args = getArgs();
-let result = pwr(args.x, args.n);
+const main = () => {
+  const args = getArgs();
+  const result = pwr(args.x, args.n);
+  
+  console.log('args', args);
+  console.log('result', result);
+}
 
-console.log('args', args);
-console.log('result', result);
+main();
 
 
 /* 

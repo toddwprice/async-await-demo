@@ -1,5 +1,8 @@
 # Custom
 .DS_Store
+dist
+lib
+deploy
 
 # Logs
 logs

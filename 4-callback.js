@@ -10,21 +10,25 @@ const pwr = (x, n) => {
 
 // getArgs -- this version expects a callback function to be passed in
 const getArgs = (callback) => {
-  const params = { Bucket: settings.Bucket, Key: settings.Key };
+  const params = { Bucket: settings.s3.bucket, Key: settings.s3.keys.single_arg };
   s3.getObject(params, callback);
 }
 
-// call the getArgs and include a callback function
-getArgs((err, data) => {
-  if (err) throw err;
+const main = () => {
+  // call the getArgs and include a callback function
+  getArgs((err, data) => {
+    if (err) throw err;
 
-  const args = JSON.parse(data.Body);
-  const result = pwr(args.x, args.n);
+    const args = JSON.parse(data.Body);
+    const result = pwr(args.x, args.n);
 
-  console.log('args', args);
-  console.log('result', result);
-    
-});
+    console.log('args', args);
+    console.log('result', result);
+      
+  });
+}
+
+main();
 
 /*
 Finally we have a working callback! This style is fine for simple scripts like this,

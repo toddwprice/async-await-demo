@@ -19,7 +19,7 @@ const main = async (event, context, next) => {
   const keys = settings.Array;
   for (let key of keys) {
     try {
-      let params = {Bucket: settings.Bucket, Key: key};
+      let params = {Bucket: settings.s3.bucket, Key: key};
       let result = await s3.getObjectAsync(params);
       let args = JSON.parse(result.Body.toString());
   

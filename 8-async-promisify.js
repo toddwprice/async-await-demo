@@ -9,12 +9,12 @@ const pwr = (x, n) => {
   return Math.pow(x, n);
 }
 
-// we can use the `bluebird` library to Promisify and function that normally expects a callback
+// we can use the `bluebird` library to Promisify a function that normally expects a callback
 const main = async () => {
   try {
-    const params = { Bucket: settings.Bucket, Key: settings.Key };
+    const params = { Bucket: settings.s3.bucket, Key: settings.s3.keys.single_arg };
     const data = await s3.getObjectAsync(params);
-    const args = JSON.parse(data.Body.toString());
+    const args = JSON.parse(data.Body);
     const result = pwr(args.x, args.n);
     
     console.log('args', args);

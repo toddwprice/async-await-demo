@@ -11,7 +11,7 @@ const pwr = (x, n) => {
 // getArgs -- this version returns a Promise and does not need a callback passed in
 const getArgs = () => {
   return new Promise((resolve, reject) => {
-    const params = { Bucket: settings.Bucket, Key: settings.Key };
+    const params = { Bucket: settings.s3.bucket, Key: settings.s3.keys.single_arg };
   
     s3.getObject(params, (err, data) => {
       if (err) return reject(err);
@@ -24,7 +24,7 @@ const getArgs = () => {
 // now we call the same Promise-wrapped getArgs function, but using async-await syntax
 const main = async () => {
   try {
-    let args = await getArgs();
+    const args = await getArgs();
     const result = pwr(args.x, args.n);
     
     console.log('args', args);

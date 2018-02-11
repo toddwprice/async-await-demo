@@ -11,15 +11,19 @@ const pwr = (x, n) => {
 
 // getArgs -- this function retrieves the args from an S3 bucket
 const getArgs = () => {
-  const params = { Bucket: settings.Bucket, Key: settings.Key };
+  const params = { Bucket: settings.s3.bucket, Key: settings.s3.keys.single_arg };
   return s3.getObject(params);
 }
 
-let args = getArgs();
-let result = pwr(args.x, args.n);
+const main = () => {
+  const args = getArgs();
+  const result = pwr(args.x, args.n);
+  
+  console.log('args', args);
+  console.log('result', result);
+}
 
-console.log('args', args);
-console.log('result', result);
+main();
 
 /*
 `params` does not hold the data retrieved from the S3 bucket, but a Response object.

@@ -23,7 +23,7 @@ const main = (() => {
     const keys = settings.Array;
     for (let key of keys) {
       try {
-        let params = { Bucket: settings.Bucket, Key: key };
+        let params = { Bucket: settings.s3.bucket, Key: key };
         let result = yield s3.getObjectAsync(params);
         let args = JSON.parse(result.Body.toString());
 
