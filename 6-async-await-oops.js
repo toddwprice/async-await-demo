@@ -1,12 +1,8 @@
+const pwr = require('./pwr');
 const settings = require('./settings.json');
 const AWS = require('aws-sdk');
 AWS.config.update({region: 'us-east-1'});
 const s3 = new AWS.S3();
-
-// pwr -- simple function that returns x^n
-const pwr = (x, n) => {
-  return Math.pow(x, n);
-}
 
 // getArgs -- this version returns a Promise and does not need a callback passed in
 const getArgs = () => {

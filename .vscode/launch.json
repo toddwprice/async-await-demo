@@ -58,5 +58,15 @@
       "name": "9-async-loops.js",
       "program": "${workspaceFolder}/9-async-loops.js"
     }
+		// {
+		// 	"name": "lamb run async-await-demo",
+		// 	"type": "node",
+		// 	"request": "launch",
+		// 	"program": "/usr/local/bin/lamb",
+		// 	"args": [
+		// 		"run",
+		// 		"async-await-demo"
+		// 	]
+		// }
   ]
 }

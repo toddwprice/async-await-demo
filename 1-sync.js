@@ -1,7 +1,4 @@
-// pwr -- simple function that returns x^n
-const pwr = (x, n) => {
-  return Math.pow(x, n);
-}
+const pwr = require('./pwr');
 
 // NOTE: every example builds on a simple math operation function that takes two arguments (x,n)
 //    and returns x^n

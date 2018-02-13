@@ -1,3 +1,4 @@
+const pwr = require('./pwr');
 const bluebird = require('bluebird');
 const fs = require('fs');
 const path = require('path');
@@ -6,13 +7,9 @@ const AWS = require('aws-sdk');
 AWS.config.update({ region: settings.region || 'us-east-1' });
 const s3 = bluebird.promisifyAll(new AWS.S3());
 
-// pwr -- simple function that returns x^n
-const pwr = (x, n) => {
-  return Math.pow(x, n);
-}
+// This version is the same as 9-async-loops.js, but modularized for AWS Lambda
 
-
-// loops are where async-await really starts to shine
+// serial loops are where async-await really makes things easy
 const main = async (event, context, next) => {
   try {
     // get the list of keys
